@@ -89,7 +89,7 @@ bin/console gpx:read data/gpx/2024-05-05.gpx --date="2024-05-05 13:04:16" --gap=
 or within your composer project:
 
 ```bash
-bin/console gpx:read data/gpx/2024-05-05.gpx --date="2024-05-05 13:04:16" --gap="\-00:13:00"
+vendor/bin/php-gpx-reader gpx:read data/gpx/2024-05-05.gpx --date="2024-05-05 13:04:16" --gap="\-00:13:00"
 ```
 
 ```bash
