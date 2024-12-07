@@ -18,6 +18,7 @@ use DateTime;
 use DateTimeImmutable;
 use DateTimeZone;
 use Ixnode\PhpContainer\File;
+use Ixnode\PhpContainer\Image;
 use Ixnode\PhpCoordinate\Coordinate;
 use Ixnode\PhpDateParser\Constants\Timezones;
 use Ixnode\PhpException\Case\CaseUnsupportedException;
@@ -101,6 +102,28 @@ final class GpxReader
     public function setDateTimeFromString(string $dateTime, DateTimeZone $dateTimeZoneInput = new DateTimeZone(Timezones::UTC)): void
     {
         $dateTime = new DateTimeImmutable($dateTime, $dateTimeZoneInput);
+
+        $this->setDateTime($dateTime);
+    }
+
+    /**
+     * Sets the internal date time immutable from given image object.
+     *
+     * @param Image $image
+     * @param DateTimeZone $dateTimeZoneInput
+     * @return void
+     * @throws \DateInvalidOperationException
+     * @throws \DateMalformedStringException
+     */
+    public function setDateTimeFromImage(Image $image, DateTimeZone $dateTimeZoneInput = new DateTimeZone(Timezones::UTC)): void
+    {
+        $taken = $image->getTaken();
+
+        if (is_null($taken)) {
+            throw new LogicException('The given image does not have a taken date.');
+        }
+
+        $dateTime = new DateTimeImmutable($taken->format('Y-m-d H:i:s'), $dateTimeZoneInput);
 
         $this->setDateTime($dateTime);
     }

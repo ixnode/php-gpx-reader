@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ef508ee42852245b2b35b6a10506bc8",
+    "content-hash": "201c0650daee11659013aca322d472b5",
     "packages": [
         {
             "name": "adhocore/cli",
@@ -1032,22 +1032,22 @@
         },
         {
             "name": "ixnode/bash-version-manager",
-            "version": "0.1.8",
+            "version": "0.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixnode/bash-version-manager.git",
-                "reference": "f641482b6e828d0748f986d0e15bfc4cd87ead69"
+                "reference": "d080c05c7444fbca08a9410f60639827e151f5a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixnode/bash-version-manager/zipball/f641482b6e828d0748f986d0e15bfc4cd87ead69",
-                "reference": "f641482b6e828d0748f986d0e15bfc4cd87ead69",
+                "url": "https://api.github.com/repos/ixnode/bash-version-manager/zipball/d080c05c7444fbca08a9410f60639827e151f5a5",
+                "reference": "d080c05c7444fbca08a9410f60639827e151f5a5",
                 "shasum": ""
             },
             "require": {
                 "ixnode/php-checker": "^0.1.9",
-                "ixnode/php-container": "^0.1.8",
-                "ixnode/php-exception": "^0.1.19",
+                "ixnode/php-container": "^1.0.0",
+                "ixnode/php-exception": "^0.1.21",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -1083,9 +1083,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ixnode/bash-version-manager/issues",
-                "source": "https://github.com/ixnode/bash-version-manager/tree/0.1.8"
+                "source": "https://github.com/ixnode/bash-version-manager/tree/0.1.10"
             },
-            "time": "2023-08-14T20:09:22+00:00"
+            "time": "2024-12-07T21:49:00+00:00"
         },
         {
             "name": "ixnode/php-checker",
@@ -1147,16 +1147,16 @@
         },
         {
             "name": "ixnode/php-container",
-            "version": "0.1.24",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixnode/php-container.git",
-                "reference": "86f3b13716367eb40c454799612f69040849049e"
+                "reference": "f46fc142ba63ad50c9045ea97d34ce63001bf2e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixnode/php-container/zipball/86f3b13716367eb40c454799612f69040849049e",
-                "reference": "86f3b13716367eb40c454799612f69040849049e",
+                "url": "https://api.github.com/repos/ixnode/php-container/zipball/f46fc142ba63ad50c9045ea97d34ce63001bf2e9",
+                "reference": "f46fc142ba63ad50c9045ea97d34ce63001bf2e9",
                 "shasum": ""
             },
             "require": {
@@ -1164,7 +1164,8 @@
                 "ext-exif": "*",
                 "ext-gd": "*",
                 "ixnode/php-checker": "^0.1.8",
-                "ixnode/php-exception": "^0.1.19",
+                "ixnode/php-coordinate": "1.0.1",
+                "ixnode/php-exception": "^0.1.21",
                 "ixnode/php-naming-conventions": "^0.1.1",
                 "ixnode/php-size-byte": "^0.1.2",
                 "php": "^8.0"
@@ -1208,9 +1209,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ixnode/php-container/issues",
-                "source": "https://github.com/ixnode/php-container/tree/0.1.24"
+                "source": "https://github.com/ixnode/php-container/tree/1.0.0"
             },
-            "time": "2024-11-30T16:40:32+00:00"
+            "time": "2024-12-07T20:33:21+00:00"
         },
         {
             "name": "ixnode/php-size-byte",

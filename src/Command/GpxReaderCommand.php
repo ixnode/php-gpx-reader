@@ -13,12 +13,15 @@ declare(strict_types=1);
 
 namespace Ixnode\PhpGpxReader\Command;
 
+use AllowDynamicProperties;
 use DateTimeZone;
 use Exception;
 use Ixnode\PhpContainer\File;
+use Ixnode\PhpContainer\Image;
 use Ixnode\PhpDateParser\Constants\Timezones;
 use Ixnode\PhpGpxReader\Command\Base\BaseCommand;
 use Ixnode\PhpGpxReader\GpxReader;
+use LogicException;
 
 /**
  * Class GpxReaderCommand
@@ -28,9 +31,10 @@ use Ixnode\PhpGpxReader\GpxReader;
  * @since 0.1.0 (2024-12-07) First version.
  * @property string|null $file
  * @property string|null $date
+ * @property string|null $image
  * @property string|null $gap
  */
-class GpxReaderCommand extends BaseCommand
+#[AllowDynamicProperties] class GpxReaderCommand extends BaseCommand
 {
     private const SUCCESS = 0;
 
@@ -46,6 +50,7 @@ class GpxReaderCommand extends BaseCommand
         $this
             ->argument('file', 'The GPX file to be read.')
             ->option('--date', 'The date that should be find within the given GPX file.')
+            ->option('--image', 'The image to read the taken time.')
             ->option('--gap', 'The time gap from the camera to the gpx file.')
         ;
     }
@@ -72,7 +77,7 @@ class GpxReaderCommand extends BaseCommand
             return self::INVALID;
         }
 
-        if (!is_string($this->date)) {
+        if (!is_string($this->date) && !is_string($this->image)) {
             print 'Date must be a string.'.PHP_EOL;
             return self::INVALID;
         }
@@ -85,7 +90,11 @@ class GpxReaderCommand extends BaseCommand
         }
 
         /* Set (real) time to search. */
-        $gpxReader->setDateTimeFromString($this->date, new DateTimeZone(Timezones::EUROPE_BERLIN));
+        match (true) {
+            is_string($this->date) => $gpxReader->setDateTimeFromString($this->date, new DateTimeZone(Timezones::EUROPE_BERLIN)),
+            is_string($this->image) => $gpxReader->setDateTimeFromImage(new Image(new File($this->image)), new DateTimeZone(Timezones::EUROPE_BERLIN)),
+            default => throw new LogicException('Please specify a valid date or image.'),
+        };
 
         /* Get the closest coordinate from GPX file. */
         $coordinate = $gpxReader->getCoordinate();

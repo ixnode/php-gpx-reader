@@ -78,7 +78,7 @@ vendor/bin/php-gpx-reader -V
 
 ## 4. Command line tool
 
-### 4.1 Search for the closest point
+### 4.1 Search for the closest point with given taken time
 
 > Search for the closest point within a gpx file with given date and camera time gap.
 
@@ -99,6 +99,30 @@ Time difference:  5s
 Coordinate:       lat=47.099262; lon=9.942202
 Coordinate:       47.099262, 9.942202
 Google link:      https://www.google.de/maps/place/47.099262+9.942202
+
+```
+
+### 4.2 Search for the closest point with given image (to read the taken time)
+
+> Search for the closest point within a gpx file with given date and camera time gap.
+
+```bash
+bin/console gpx:read data/gpx/2024-05-05.gpx --image="data/image/example-basic.jpg" --gap="\-00:13:00"
+```
+
+or within your composer project:
+
+```bash
+vendor/bin/php-gpx-reader gpx:read data/gpx/2024-05-05.gpx --image="data/image/example-basic.jpg" --gap="\-00:13:00"
+```
+
+```bash
+
+Time to search:   05.05.2024 10:51:17 UTC
+Time difference:  4s
+Coordinate:       lat=47.099251; lon=9.942342
+Coordinate:       47.099251, 9.942342
+Google link:      https://www.google.de/maps/place/47.099251+9.942342
 
 ```
 
