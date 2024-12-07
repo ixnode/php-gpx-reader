@@ -14,9 +14,6 @@ declare(strict_types=1);
 namespace Ixnode\PhpGpxReader;
 
 use DateInterval;
-use DateInvalidOperationException;
-use DateMalformedIntervalStringException;
-use DateMalformedStringException;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeZone;
@@ -42,11 +39,11 @@ use SimpleXMLElement;
  */
 final class GpxReader
 {
-    private const string TIME_GAP_SIGN_SUB = '-';
+    private const TIME_GAP_SIGN_SUB = '-';
 
-    private const string TIME_GAP_SIGN_ADD = '+';
+    private const TIME_GAP_SIGN_ADD = '+';
 
-    private SimpleXMLElement $gpxXml;
+    private readonly SimpleXMLElement $gpxXml;
 
     private DateTimeImmutable $dateTime;
 
@@ -68,7 +65,7 @@ final class GpxReader
     /**
      * Sets the internal date time immutable object directly.
      *
-     * @throws DateInvalidOperationException
+     * @throws \DateInvalidOperationException
      */
     public function setDateTime(DateTimeImmutable $dateTime): void
     {
@@ -98,8 +95,8 @@ final class GpxReader
      * @param string $dateTime
      * @param DateTimeZone $dateTimeZoneInput
      * @return void
-     * @throws DateMalformedStringException
-     * @throws DateInvalidOperationException
+     * @throws \DateMalformedStringException
+     * @throws \DateInvalidOperationException
      */
     public function setDateTimeFromString(string $dateTime, DateTimeZone $dateTimeZoneInput = new DateTimeZone(Timezones::UTC)): void
     {
@@ -132,8 +129,8 @@ final class GpxReader
      * - +02:13:00 (== 02:13:00)
      * - -02:13:00
      *
-     * @throws DateMalformedStringException
-     * @throws DateMalformedIntervalStringException
+     * @throws \DateMalformedStringException
+     * @throws \DateMalformedIntervalStringException
      */
     public function setTimeGapFromString(string $timeGap): void
     {
@@ -230,7 +227,7 @@ final class GpxReader
     /**
      * Returns the Coordinate by given date.
      *
-     * @throws DateMalformedStringException
+     * @throws \DateMalformedStringException
      * @throws CaseUnsupportedException
      * @throws ParserException
      */
