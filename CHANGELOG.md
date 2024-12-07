@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Releases
 
+### [0.1.3] - 2024-12-08
+
+* Add image option to read taken date from image
+
 ### [0.1.2] - 2024-12-08
 
 * Downgrade to PHP 8.2

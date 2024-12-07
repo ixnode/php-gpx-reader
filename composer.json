@@ -1,7 +1,7 @@
 {
   "name": "ixnode/php-gpx-reader",
   "description": "PHP GPX Reader - A versatile library for reading GPX files and efficiently retrieving GPS coordinates based on timestamps.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "library",
   "license": "MIT",
   "keywords": ["php", "gpx", "timestamp", "camera", "time-correction", "time-gap", "gpx", "coordinate"],
